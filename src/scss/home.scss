@@ -33,6 +33,16 @@
         @media (max-width: $mobileSmall) {
             font-size: rem(36);
         }
+        // ANIMATION ==================================================================================================================================================
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s ease 0.3s, opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+        transform: translate(rem(-30), 0px);
+        .loaded & {
+            transform: translate(0px, 0px);
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &__text {
@@ -40,12 +50,35 @@
         line-height: math.div(30, 20);
         letter-spacing: rem(0.2);
         color: $secondTextColor;
+        @media (max-width: $tablet) {
+            color: $mainColor;
+        }
+        // ANIMATION ==================================================================================================================================================
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s ease 0.5s, opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+        transform: translate(rem(-30), 0px);
+        .loaded & {
+            transform: translate(0px, 0px);
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &__buttons {
         display: flex;
         @media (max-width: $mobileSmall) {
             flex-wrap: wrap;
+        }
+        // ANIMATION ==================================================================================================================================================
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s ease 0.8s, opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s;
+        transform: translate(rem(-30), 0px);
+        .loaded & {
+            transform: translate(0px, 0px);
+            opacity: 1;
+            visibility: visible;
         }
     }
 
@@ -100,11 +133,20 @@
                 object-position: right;
             }
         }
-        @media (max-width: $tablet) {
-            opacity: 0.5;
-        }
-        @media (max-width: $mobile) {
-            opacity: 0.3;
+
+        // ANIMATION ==================================================================================================================================================
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease 0s, opacity 0.5s ease 0s;
+        .loaded & {
+            opacity: 1;
+            visibility: visible;
+            @media (max-width: $tablet) {
+                opacity: 0.5;
+            }
+            @media (max-width: $mobile) {
+                opacity: 0.3;
+            }
         }
     }
 }
@@ -115,32 +157,20 @@
     position: relative;
     z-index: 2;
     &__container {
-    }
-
-    &__body {
-        display: flex;
-        margin: rem(-110) rem(-15) 0 rem(-15);
+        margin-top: rem(-110);
+        gap: rem(30);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         @media (max-width: $tablet) {
             gap: rem(20) 0;
-            flex-wrap: wrap;
+            grid-template-columns: 1fr;
         }
         @media (max-width: $mobile) {
             margin-top: rem(-80);
         }
-    }
 
-    &__column {
-        padding: 0px rem(15);
-        flex: 0 1 33.333%;
-        @media (max-width: $tablet) {
-            flex: 0 1 50%;
-            &:last-child {
-                flex: 1 1 100%;
-            }
-        }
-        @media (max-width: $mobile) {
-            flex: 1 1 100%;
-        }
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0);
     }
 
     &__item {
@@ -154,6 +184,7 @@
     padding: rem(35) rem(40);
     background-color: $white;
     box-shadow: 0px rem(13) rem(19) rgba(0, 0, 0, 0.07);
+    transition: background-color 0.3s ease 0s;
     *:not(:last-child) {
         margin-bottom: rem(10);
     }
@@ -164,7 +195,21 @@
     @media (max-width: $mobile) {
         padding: rem(20);
     }
+
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: $secondaryColor;
+            .item-service__icon,
+            .item-service__title,
+            .item-service__text {
+                color: $white;
+            }
+        }
+    }
     &__icon {
+        color: $secondaryColor;
+        font-size: rem(48);
+        transition: color 0.3s ease 0s;
     }
 
     &__title {
@@ -173,20 +218,14 @@
         line-height: math.div(32, 24);
         letter-spacing: rem(0.1);
         flex: 1 1 auto;
+        transition: color 0.3s ease 0s;
     }
 
     &__text {
         line-height: math.div(20, 14);
         letter-spacing: rem(0.2);
+        transition: color 0.3s ease 0s;
         color: $secondTextColor;
-    }
-
-    &_secondary {
-        background-color: $secondaryColor;
-        .item-service__title,
-        .item-service__text {
-            color: $white;
-        }
     }
 }
 
@@ -209,24 +248,18 @@
 
     &__body {
         display: flex;
-        margin: 0px rem(-15);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(30);
         @media (max-width: $tablet) {
-            margin: 0px rem(-10);
-            gap: rem(20) 0;
-            flex-wrap: wrap;
-        }
-    }
-
-    &__column {
-        flex: 0 1 25%;
-        padding: 0px rem(15);
-        @media (max-width: $tablet) {
-            flex: 0 1 50%;
-            padding: 0px rem(10);
+            gap: rem(20);
+            grid-template-columns: repeat(2, 1fr);
         }
         @media (max-width: $mobileSmall) {
-            flex: 1 1 100%;
+            grid-template-columns: 1fr;
         }
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0);
     }
 
     &__item {
@@ -238,6 +271,13 @@
     padding: rem(30);
     text-align: center;
     font-weight: 700;
+    box-shadow: 0px rem(13) rem(19) rgba(0, 0, 0, 0);
+    transition: box-shadow 0.3s ease 0s;
+    @media (any-hover: hover) {
+        &:hover {
+            box-shadow: 0px rem(13) rem(19) rgba(0, 0, 0, 0.07);
+        }
+    }
     *:not(:last-child) {
         margin-bottom: rem(10);
     }
@@ -247,6 +287,8 @@
     }
 
     &__icon {
+        font-size: rem(48);
+        color: $secondaryColor;
     }
 
     &__title {
@@ -287,36 +329,23 @@
     }
 
     &__body {
-        display: flex;
-        margin: 0px rem(-20);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(40);
         @media (max-width: $pc) {
-            margin: 0px rem(-15);
+            gap: rem(30);
         }
         @media (max-width: $tablet) {
-            flex-wrap: wrap;
-            gap: rem(30) 0;
+            grid-template-columns: repeat(2, 1fr);
         }
         @media (max-width: $mobile) {
-            margin: 0px rem(-10);
-            gap: rem(20) 0;
-        }
-    }
-
-    &__column {
-        flex: 0 1 25%;
-        padding: 0px rem(20);
-        @media (max-width: $pc) {
-            padding: 0px rem(15);
-        }
-        @media (max-width: $tablet) {
-            flex: 0 1 50%;
-        }
-        @media (max-width: $tablet) {
-            padding: 0px rem(10);
+            gap: rem(20);
         }
         @media (max-width: $mobileSmall) {
-            flex: 1 1 100%;
+            grid-template-columns: 1fr;
         }
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0);
     }
 
     &__item {
@@ -328,6 +357,13 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: 0px rem(13) rem(19) rgba(0, 0, 0, 0);
+    transition: box-shadow 0.3s ease 0s;
+    @media (any-hover: hover) {
+        &:hover {
+            box-shadow: 0px rem(13) rem(19) rgba(0, 0, 0, 0.07);
+        }
+    }
     &__content {
         padding: rem(30);
         flex: 1 1 auto;
@@ -413,6 +449,9 @@
         @media (max-width: $mobile) {
             min-height: 250px;
         }
+
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(rem(-30), 0, 0.8, 1);
     }
 
     &__content {
@@ -434,6 +473,9 @@
         &:not(:last-child) {
             margin-bottom: rem(10);
         }
+
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(rem(30), 0, 0.8, 1, true);
     }
 
     &__text {
@@ -442,6 +484,9 @@
         @media (max-width: $tablet) {
             text-align: center;
         }
+
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(rem(30), 0, 0.8, 1.4, true);
     }
 
     &__items {
@@ -454,6 +499,9 @@
         @media (max-width: $mobile) {
             flex-wrap: wrap;
         }
+
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(rem(30), 0, 0.8, 1.8, true);
     }
 
     &__item {
@@ -474,6 +522,8 @@
     }
 
     &__icon {
+        color: $primaryColor;
+        font-size: rem(32);
         flex: 0 0 rem(32);
         margin-right: rem(20);
     }
@@ -509,9 +559,6 @@
         padding: rem(30) 0px;
     }
     &__container {
-    }
-
-    &__items {
         display: flex;
         align-items: center;
         gap: rem(30);
@@ -536,6 +583,9 @@
         img {
             max-width: 100%;
         }
+
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0, true);
     }
 }
 
@@ -553,6 +603,9 @@
         background: $mainColor;
         z-index: -1;
     }
+    // ANIMATION ==================================================================================================================================================
+    @include inViewBasic(0, 0, 0.8, 0);
+
     &__container {
     }
 
@@ -574,6 +627,9 @@
             padding: rem(20) rem(15);
             flex-wrap: wrap;
         }
+
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0.4, true);
     }
 
     &__title {
@@ -677,9 +733,6 @@
     }
 
     &__body {
-    }
-
-    &__items {
         @media (min-width: $tablet) {
             display: flex;
             align-items: center;
@@ -694,6 +747,9 @@
         @media (max-width: $mobileSmall) {
             margin: 0;
         }
+
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0.4);
     }
 
     &__item {
@@ -715,17 +771,58 @@
     background-color: $white;
     padding: rem(50) rem(20);
     gap: rem(15);
+    position: relative;
+    transition: background-color 0.5s ease 0s, color 0.5s ease 0s;
+    &::before,
+    &::after {
+        content: "";
+        background-color: $white;
+        position: absolute;
+        height: 0;
+        width: 100%;
+        left: 0;
+        transition: height 0.5s ease 0s, background-color 0.5s ease 0s;
+    }
+    &::before {
+        bottom: 100%;
+    }
+    &::after {
+        top: 100%;
+    }
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: $mainColor;
+            @media (min-width: $tablet) {
+                &::before,
+                &::after {
+                    background-color: $mainColor;
+                    height: rem(15);
+                }
+            }
+            .item-getintouch__icon,
+            .item-getintouch__email,
+            .item-getintouch__label {
+                color: $white;
+            }
+            .item-getintouch__button {
+                color: $white;
+                border: rem(1) solid $white;
+                @media (any-hover: hover) {
+                    &:hover {
+                        border: rem(1) solid $primaryColor;
+                    }
+                }
+            }
+        }
+    }
     @media (max-width: $tablet) {
         padding: rem(40) rem(20);
     }
-    &._active {
-        background-color: $mainColor;
-        color: $white;
-        @media (min-width: $tablet) {
-            padding: rem(80) rem(20);
-        }
-    }
+
     &__icon {
+        transition: color 0.3s ease 0s;
+        font-size: rem(72);
+        color: $secondaryColor;
     }
 
     &__emails {
@@ -752,6 +849,7 @@
         font-size: rem(16);
         line-height: math.div(24, 16);
         letter-spacing: rem(0.1);
+        transition: color 0.3s ease 0s;
     }
 
     &__button {
@@ -775,15 +873,6 @@
                 color: $white;
             }
         }
-        ._active & {
-            color: $white;
-            border: rem(1) solid $white;
-            @media (any-hover: hover) {
-                &:hover {
-                    border: rem(1) solid $primaryColor;
-                }
-            }
-        }
     }
 }
 
@@ -796,10 +885,10 @@
         padding: rem(30) 0px;
     }
 
-    &__container {
-    }
+    // ANIMATION ==================================================================================================================================================
+    @include inViewBasic(0, rem(30), 0.8, 0);
 
-    &__body {
+    &__container {
         @media (min-width: $mobile) {
             display: flex;
             align-items: center;

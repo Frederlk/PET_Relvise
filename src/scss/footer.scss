@@ -38,6 +38,8 @@
         @media (max-width: $mobileSmall) {
             flex: 1 1 100%;
         }
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0);
     }
 
     &__label {
@@ -95,6 +97,8 @@
     }
 
     &__bottom {
+        // ANIMATION ==================================================================================================================================================
+        @include inViewBasic(0, rem(30), 0.8, 0);
         padding: rem(25) 0px;
     }
 
@@ -119,6 +123,7 @@
     &__social-item {
     }
 }
+
 .menu-footer {
     &__list {
     }
@@ -167,6 +172,12 @@
     }
 
     &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 rem(30);
+        font-size: rem(24);
+        color: #8ec2f2;
         margin-right: rem(10);
     }
 }

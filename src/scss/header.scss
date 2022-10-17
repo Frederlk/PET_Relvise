@@ -9,7 +9,6 @@
     &__container {
         display: flex;
         align-items: center;
-        height: rem(104);
         @include adaptiveValue("height", 104, 70);
     }
 
@@ -19,12 +18,30 @@
         font-size: rem(24);
         line-height: 133%;
         letter-spacing: rem(0.1);
+        // ANIMATION ========================================================================================================================================================
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.8s ease 0s, opacity 0.8s ease 0s, transform 0.8s ease 0s;
+        transform: translate(rem(-30), 0px);
+        .loaded & {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(0px, 0px);
+        }
     }
 
     // .header__menu
     &__menu {
         padding: rem(5) 0px;
-        @include adaptiveValue("margin-left", 133, 30);
+        @include adaptiveValue("margin-left", 133, 30, 1050, 767.98, 1);
+        // ANIMATION ========================================================================================================================================================
+        transition: visibility 0.8s ease 0.4s, opacity 0.8s ease 0.4s;
+        visibility: hidden;
+        opacity: 0;
+        .loaded & {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 }
 
