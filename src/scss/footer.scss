@@ -1,0 +1,172 @@
+.footer {
+    &__top {
+        padding: rem(50) 0px;
+        background-color: $darkColor;
+    }
+
+    &__container {
+        display: flex;
+        gap: rem(30) 0;
+        &_bottom {
+            justify-content: space-between;
+            align-items: center;
+            @media (max-width: $mobile) {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: rem(20);
+            }
+        }
+        @media (max-width: $mobile) {
+            flex-wrap: wrap;
+        }
+        @media (max-width: $mobileSmall) {
+            gap: rem(10);
+        }
+    }
+
+    &__column {
+        flex: 0 1 16.667%;
+        &:last-child {
+            flex: 0 1 33.334%;
+        }
+        @media (max-width: $mobile) {
+            flex: 0 1 50%;
+            &:last-child {
+                flex: 1 1 100%;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: rem(16);
+        line-height: math.div(24, 16);
+        letter-spacing: rem(0.1);
+        color: $white;
+        margin-bottom: rem(20);
+        @media (max-width: $mobile) {
+            margin-bottom: rem(10);
+        }
+        cursor: pointer;
+
+        @media (max-width: $mobileSmall) {
+            position: relative;
+            transition: color 0.5s ease 0s;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $primaryColor;
+                }
+            }
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: $white;
+                transition: opacity 0.5s ease 0s;
+            }
+            &::before {
+                width: rem(2);
+                height: rem(12);
+                right: rem(6);
+                top: rem(6);
+            }
+            &::after {
+                width: rem(12);
+                height: rem(2);
+                right: rem(1);
+                top: rem(11);
+            }
+            &._spoller-active {
+                color: $primaryColor;
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &__menu {
+    }
+
+    &__contacts {
+    }
+
+    &__bottom {
+        padding: rem(25) 0px;
+    }
+
+    &__copy {
+        flex: 1 1 auto;
+        font-weight: 600;
+        line-height: math.div(24, 14);
+        letter-spacing: rem(0.2);
+        color: $secondTextColor;
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+            text-align: center;
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: rem(20);
+        align-items: center;
+    }
+
+    &__social-item {
+    }
+}
+.menu-footer {
+    &__list {
+    }
+
+    &__item {
+        @media (min-width: $mobileSmall) {
+            &:not(:last-child) {
+                margin-bottom: rem(10);
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            padding-bottom: rem(10);
+        }
+    }
+
+    &__link {
+        font-weight: 600;
+        line-height: math.div(24, 14);
+        letter-spacing: rem(0.2);
+        color: $white;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $secondTextColor;
+            }
+        }
+    }
+}
+.contacts-footer {
+    &__link {
+        display: flex;
+        align-items: flex-start;
+        font-weight: 600;
+        line-height: math.div(24, 14);
+        letter-spacing: rem(0.2);
+        color: $white;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $secondTextColor;
+            }
+        }
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+    }
+
+    &__icon {
+        margin-right: rem(10);
+    }
+}

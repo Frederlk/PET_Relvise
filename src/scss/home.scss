@@ -1,0 +1,864 @@
+.main-block {
+    position: relative;
+    &__container {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+    }
+
+    &__body {
+        @media (min-width: $mobileSmall) {
+            max-width: rem(400);
+        }
+        padding: rem(185) 0px rem(195) 0px;
+        *:not(:last-child) {
+            margin-bottom: rem(35);
+        }
+        @media (max-width: $tablet) {
+            padding: rem(120) 0px rem(160) 0px;
+        }
+        @media (max-width: $mobile) {
+            padding: rem(100) 0px rem(140) 0px;
+        }
+    }
+
+    &__title {
+        font-weight: 800;
+        font-size: rem(58);
+        line-height: math.div(80, 58);
+        letter-spacing: rem(0.2);
+        @media (max-width: $mobile) {
+            font-size: rem(42);
+        }
+        @media (max-width: $mobileSmall) {
+            font-size: rem(36);
+        }
+    }
+
+    &__text {
+        font-size: rem(20);
+        line-height: math.div(30, 20);
+        letter-spacing: rem(0.2);
+        color: $secondTextColor;
+    }
+
+    &__buttons {
+        display: flex;
+        @media (max-width: $mobileSmall) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: rem(5) rem(36);
+        min-height: rem(48);
+        border-radius: rem(37);
+        font-weight: 700;
+        line-height: math.div(28, 14);
+        text-align: center;
+        letter-spacing: rem(0.2);
+        transition: border 0.3s ease 0s, background-color 0.3s ease 0s, color 0.3s ease 0s;
+        &:not(:last-child) {
+            margin: 0px rem(10) 0px 0px;
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 100%;
+            &:not(:last-child) {
+                margin: 0px 0px rem(10) 0px;
+            }
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                border: rem(1) solid $primaryColor;
+                background-color: transparent;
+                color: $primaryColor;
+            }
+        }
+        &_orange {
+            border: rem(1) solid transparent;
+            background-color: $primaryColor;
+            color: $white;
+        }
+        &_border {
+            background-color: transparent;
+            border: rem(1) solid $secondaryColor;
+            color: $secondaryColor;
+        }
+    }
+
+    &__image-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        @media (max-width: em(1300)) {
+            img {
+                object-position: right;
+            }
+        }
+        @media (max-width: $tablet) {
+            opacity: 0.5;
+        }
+        @media (max-width: $mobile) {
+            opacity: 0.3;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.services {
+    position: relative;
+    z-index: 2;
+    &__container {
+    }
+
+    &__body {
+        display: flex;
+        margin: rem(-110) rem(-15) 0 rem(-15);
+        @media (max-width: $tablet) {
+            gap: rem(20) 0;
+            flex-wrap: wrap;
+        }
+        @media (max-width: $mobile) {
+            margin-top: rem(-80);
+        }
+    }
+
+    &__column {
+        padding: 0px rem(15);
+        flex: 0 1 33.333%;
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+            &:last-child {
+                flex: 1 1 100%;
+            }
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__item {
+    }
+}
+
+.item-service {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: rem(35) rem(40);
+    background-color: $white;
+    box-shadow: 0px rem(13) rem(19) rgba(0, 0, 0, 0.07);
+    *:not(:last-child) {
+        margin-bottom: rem(10);
+    }
+
+    @media (max-width: $tablet) {
+        padding: rem(30);
+    }
+    @media (max-width: $mobile) {
+        padding: rem(20);
+    }
+    &__icon {
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(24);
+        line-height: math.div(32, 24);
+        letter-spacing: rem(0.1);
+        flex: 1 1 auto;
+    }
+
+    &__text {
+        line-height: math.div(20, 14);
+        letter-spacing: rem(0.2);
+        color: $secondTextColor;
+    }
+
+    &_secondary {
+        background-color: $secondaryColor;
+        .item-service__title,
+        .item-service__text {
+            color: $white;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.advantages {
+    padding: rem(80) 0px;
+    @media (max-width: $mobile) {
+        padding: rem(60) 0px;
+    }
+    &__container {
+    }
+
+    &__header {
+        margin-bottom: rem(50);
+        @media (max-width: $tablet) {
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__body {
+        display: flex;
+        margin: 0px rem(-15);
+        @media (max-width: $tablet) {
+            margin: 0px rem(-10);
+            gap: rem(20) 0;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        flex: 0 1 25%;
+        padding: 0px rem(15);
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+            padding: 0px rem(10);
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__item {
+    }
+}
+
+.item-advantages {
+    background-color: $white;
+    padding: rem(30);
+    text-align: center;
+    font-weight: 700;
+    *:not(:last-child) {
+        margin-bottom: rem(10);
+    }
+
+    @media (max-width: $pc) {
+        padding: rem(20);
+    }
+
+    &__icon {
+    }
+
+    &__title {
+        font-size: rem(40);
+        line-height: math.div(57, 40);
+        letter-spacing: rem(0.2);
+        @media (max-width: $mobile) {
+            font-size: rem(32);
+        }
+    }
+
+    &__text {
+        font-size: rem(16);
+        line-height: math.div(24, 16);
+        letter-spacing: rem(0.1);
+        color: $secondTextColor;
+    }
+}
+
+//========================================================================================================================================================
+
+.practice {
+    padding: rem(80) 0px;
+    @media (max-width: $tablet) {
+        padding: rem(40) 0px rem(80) 0px;
+    }
+    @media (max-width: $mobile) {
+        padding: rem(20) 0px rem(60) 0px;
+    }
+    &__container {
+    }
+
+    &__header {
+        margin-bottom: rem(45);
+        @media (max-width: $tablet) {
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__body {
+        display: flex;
+        margin: 0px rem(-20);
+        @media (max-width: $pc) {
+            margin: 0px rem(-15);
+        }
+        @media (max-width: $tablet) {
+            flex-wrap: wrap;
+            gap: rem(30) 0;
+        }
+        @media (max-width: $mobile) {
+            margin: 0px rem(-10);
+            gap: rem(20) 0;
+        }
+    }
+
+    &__column {
+        flex: 0 1 25%;
+        padding: 0px rem(20);
+        @media (max-width: $pc) {
+            padding: 0px rem(15);
+        }
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+        }
+        @media (max-width: $tablet) {
+            padding: 0px rem(10);
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__item {
+    }
+}
+
+.item-practice {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &__content {
+        padding: rem(30);
+        flex: 1 1 auto;
+        @media (max-width: $mobile) {
+            padding: rem(20);
+        }
+    }
+
+    &__link {
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(16);
+        line-height: math.div(24, 16);
+        letter-spacing: rem(0.1);
+        transition: color 0.3s ease 0s;
+        margin-bottom: rem(15);
+        @media (any-hover: hover) {
+            &:hover {
+                color: $secondTextColor;
+            }
+        }
+    }
+
+    &__text {
+        line-height: math.div(20, 14);
+        letter-spacing: rem(0.2);
+        color: $secondTextColor;
+    }
+
+    &__image-ibg {
+        display: block;
+        padding-bottom: 60%;
+    }
+}
+
+//========================================================================================================================================================
+
+.whoweare {
+    padding: rem(100) 0px rem(135) 0px;
+    background-color: $white;
+    @media (max-width: $pc) {
+        padding: rem(100) 0px;
+    }
+    @media (max-width: $tablet) {
+        padding: rem(80) 0px;
+    }
+    @media (max-width: $mobile) {
+        padding: rem(60) 0px;
+    }
+    &__container {
+    }
+
+    &__header {
+        margin-bottom: rem(100);
+        @media (max-width: $tablet) {
+            margin-bottom: rem(80);
+        }
+        @media (max-width: $mobile) {
+            margin-bottom: rem(60);
+        }
+    }
+
+    &__body {
+        display: flex;
+        gap: rem(120);
+        @media (max-width: $pc) {
+            gap: rem(40);
+        }
+        @media (max-width: $tablet) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__video {
+        flex: 0 0 57%;
+        @extend %responsiveVideo;
+        padding-bottom: 42.25%;
+        @media (max-width: $tablet) {
+            padding-bottom: 50%;
+        }
+        @media (max-width: $mobile) {
+            min-height: 250px;
+        }
+    }
+
+    &__content {
+        letter-spacing: rem(0.2);
+        flex: 1 1 auto;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(40);
+        line-height: math.div(57, 40);
+        @media (max-width: $tablet) {
+            text-align: center;
+            font-size: rem(36);
+        }
+        @media (max-width: $mobile) {
+            font-size: rem(28);
+        }
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+    }
+
+    &__text {
+        line-height: math.div(20, 14);
+        color: $secondTextColor;
+        @media (max-width: $tablet) {
+            text-align: center;
+        }
+    }
+
+    &__items {
+        margin-top: rem(50);
+        @media (max-width: $tablet) {
+            display: flex;
+            gap: rem(20);
+            margin-top: rem(40);
+        }
+        @media (max-width: $mobile) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+    }
+}
+.item-whoweare {
+    display: flex;
+    @media (min-width: $tablet) {
+        &:not(:last-child) {
+            margin-bottom: rem(30);
+        }
+    }
+
+    &__icon {
+        flex: 0 0 rem(32);
+        margin-right: rem(20);
+    }
+
+    &__body {
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(16);
+        line-height: math.div(24, 16);
+        letter-spacing: rem(0.1);
+        &:not(:last-child) {
+            margin-bottom: rem(5);
+        }
+    }
+
+    &__text {
+        font-weight: 600;
+        line-height: math.div(24, 14);
+        color: $secondTextColor;
+    }
+}
+
+//========================================================================================================================================================
+
+.clients {
+    padding: rem(50) 0px;
+    @media (max-width: $tablet) {
+        padding: rem(40) 0px;
+    }
+    @media (max-width: $mobile) {
+        padding: rem(30) 0px;
+    }
+    &__container {
+    }
+
+    &__items {
+        display: flex;
+        align-items: center;
+        gap: rem(30);
+        @media (max-width: $tablet) {
+            gap: rem(20);
+        }
+        @media (max-width: $mobile) {
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+
+    &__item {
+        text-align: center;
+        flex: 0 1 16.666%;
+        @media (min-width: $tablet) {
+            padding: 0px rem(20);
+        }
+        @media (max-width: $mobile) {
+            flex: 0 1 33.333%;
+        }
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.subscribe {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: rem(77);
+        bottom: rem(-20);
+        left: 0;
+        background: $mainColor;
+        z-index: -1;
+    }
+    &__container {
+    }
+
+    &__body {
+        margin: rem(20) rem(30);
+        display: flex;
+        padding: rem(30) rem(50);
+        background: $darkColor;
+        border-radius: rem(2);
+        justify-content: space-between;
+        @media (max-width: $pc) {
+            margin: rem(20) 0px;
+        }
+        @media (max-width: $tablet) {
+            padding: rem(20);
+        }
+        @media (max-width: $mobile) {
+            margin: rem(20) rem(-15);
+            padding: rem(20) rem(15);
+            flex-wrap: wrap;
+        }
+    }
+
+    &__title {
+        flex: 0 1 50%;
+        font-weight: 700;
+        font-size: rem(24);
+        line-height: math.div(32, 24);
+        letter-spacing: rem(0.1);
+        color: $white;
+        max-width: rem(266);
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+            max-width: none;
+            margin-bottom: rem(15);
+        }
+        @media (max-width: $mobileSmall) {
+            text-align: center;
+        }
+    }
+
+    &__form {
+        flex: 0 1 50%;
+        display: flex;
+        align-items: center;
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__input {
+        height: rem(58);
+        flex: 1 1 auto;
+        background: #f9f9f9;
+        border: rem(1) solid #e6e6e6;
+        border-radius: rem(5) 0 0 rem(5);
+        padding: rem(5) rem(20);
+        transition: border 0.3s ease 0s, color 0.3s ease 0s;
+        color: $secondTextColor;
+        &:focus {
+            outline: none;
+            border: rem(1) solid $primaryColor;
+            color: $mainColor;
+        }
+        @media (max-width: $mobileSmall) {
+            flex: 1 1 100%;
+            border-radius: rem(5);
+            &:not(:last-child) {
+                margin-bottom: rem(10);
+            }
+        }
+    }
+
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: rem(58);
+        display: inline-flex;
+        background: $primaryColor;
+        border: rem(1) solid #e6e6e6;
+        transition: background-color 0.3s ease 0s;
+        border-radius: 0px rem(5) rem(5) 0px;
+        line-height: math.div(28, 14);
+        text-align: center;
+        letter-spacing: rem(0.2);
+        color: $white;
+        padding: rem(5) rem(22);
+        @media (min-width: $mobileSmall) {
+            border-left: none;
+        }
+        @media (max-width: $mobileSmall) {
+            border-radius: rem(5);
+            flex: 1 1 100%;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.getintouch {
+    background: #f3f3f3;
+    padding: rem(80) 0px rem(150) 0px;
+    @media (max-width: $tablet) {
+        padding: rem(80) 0 (100) 0px;
+    }
+    @media (max-width: $mobile) {
+        padding: rem(60) 0px rem(80) 0px;
+    }
+    &__container {
+    }
+
+    &__header {
+        margin-bottom: rem(80);
+    }
+
+    &__body {
+    }
+
+    &__items {
+        @media (min-width: $tablet) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (min-width: $pc) {
+            margin: 0px rem(30);
+        }
+        @media (max-width: $tablet) {
+            margin: 0px rem(30);
+        }
+        @media (max-width: $mobileSmall) {
+            margin: 0;
+        }
+    }
+
+    &__item {
+        @media (min-width: $tablet) {
+            flex: 0 1 33.333%;
+        }
+        @media (max-width: $tablet) {
+            &:not(:last-child) {
+                margin-bottom: rem(30);
+            }
+        }
+    }
+}
+.item-getintouch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    padding: rem(50) rem(20);
+    gap: rem(15);
+    @media (max-width: $tablet) {
+        padding: rem(40) rem(20);
+    }
+    &._active {
+        background-color: $mainColor;
+        color: $white;
+        @media (min-width: $tablet) {
+            padding: rem(80) rem(20);
+        }
+    }
+    &__icon {
+    }
+
+    &__emails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        line-height: math.div(24, 14);
+        letter-spacing: rem(0.2);
+    }
+
+    &__email {
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    &__label {
+        font-weight: 700;
+        font-size: rem(16);
+        line-height: math.div(24, 16);
+        letter-spacing: rem(0.1);
+    }
+
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        font-weight: 600;
+        line-height: math.div(24, 14);
+        text-align: center;
+        letter-spacing: rem(0.2);
+        color: $primaryColor;
+        border: rem(1) solid $primaryColor;
+        border-radius: rem(5);
+        padding: rem(5) rem(20);
+        min-height: rem(44);
+        transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $primaryColor;
+                color: $white;
+            }
+        }
+        ._active & {
+            color: $white;
+            border: rem(1) solid $white;
+            @media (any-hover: hover) {
+                &:hover {
+                    border: rem(1) solid $primaryColor;
+                }
+            }
+        }
+    }
+}
+
+//========================================================================================================================================================
+
+.contact {
+    background-color: $white;
+    padding: rem(40) 0px;
+    @media (max-width: $tablet) {
+        padding: rem(30) 0px;
+    }
+
+    &__container {
+    }
+
+    &__body {
+        @media (min-width: $mobile) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    &__content {
+        @media (min-width: $mobile) {
+            flex: 1 1 auto;
+            margin-right: rem(20);
+        }
+        @media (max-width: $mobile) {
+            text-align: center;
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(24);
+        line-height: math.div(32, 24);
+        letter-spacing: rem(0.1);
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+    }
+
+    &__subtitle {
+        line-height: math.div(20, 14);
+        letter-spacing: rem(0.2);
+        color: $secondTextColor;
+    }
+
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-weight: 700;
+        line-height: math.div(28, 14);
+        letter-spacing: rem(0.2);
+        color: $white;
+        background: $primaryColor;
+        border-radius: rem(5);
+        min-height: rem(58);
+        border: rem(1) solid transparent;
+        transition: color 0.3s ease 0s, background-color 0.3s ease 0s, border 0.3s ease 0s;
+        padding: rem(5) rem(40);
+        white-space: nowrap;
+        @media (max-width: $mobile) {
+            width: 100%;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $primaryColor;
+                background-color: transparent;
+                border: rem(1) solid $primaryColor;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.header-block {
+    text-align: center;
+    margin: 0px auto;
+    letter-spacing: rem(0.2);
+    max-width: rem(864);
+    *:not(:last-child) {
+        margin-bottom: rem(10);
+    }
+    &__title {
+        font-weight: 700;
+        font-size: rem(40);
+        line-height: math.div(57, 40);
+        @media (max-width: $mobile) {
+            font-size: rem(32);
+        }
+    }
+
+    &__subtitle {
+        line-height: math.div(20, 14);
+        color: $secondTextColor;
+        @media (max-width: em(550)) {
+            br {
+                display: none;
+            }
+        }
+    }
+}
